@@ -32,9 +32,9 @@ namespace LuckyNumberProject
                 Random luckyNumber = new Random();
                 int lucky = luckyNumber.Next(firstNumber, secondNumber); 
                 int[] luckyArray = new int[6];
-                for (int i = 0; i < 6 ; i++)
+                for (int i = 0; i < luckyArray.Length; i++)
                 {
-                    luckyArray[i] = luckyNumber.Next(firstNumber, secondNumber);
+                    luckyArray[i] = luckyNumber.Next(firstNumber,secondNumber);
                 }
                 //Asking for guesses.
                 int[] guessesArray = new int[6];
