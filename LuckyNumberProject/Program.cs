@@ -12,7 +12,7 @@ namespace LuckyNumberProject
         {
             string playAgain;
             do
-            {
+            {// lucky numbers are always 0-5, the indext is being used instead of the lucky numbers being generated randomly. 
                 //Asking for user input for range.
                 Console.WriteLine("Welcome to the Blips and Chits aniversery number game!\n" 
                     + "Guess your lucky numbers.\nFirst enter a number.");
@@ -30,9 +30,9 @@ namespace LuckyNumberProject
 
                 //Creating random numbers within range and storing in luckyArray[].
                 Random luckyNumber = new Random();
-
+                int lucky = luckyNumber.Next(firstNumber, secondNumber); 
                 int[] luckyArray = new int[6];
-                for (int i = 0; i < 6; i++)
+                for (int i = 0; i < 6 ; i++)
                 {
                     luckyArray[i] = luckyNumber.Next(firstNumber, secondNumber);
                 }
