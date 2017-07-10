@@ -13,19 +13,22 @@ namespace LuckyNumberProject
             string playAgain;
             do
             {
-                Console.WriteLine("Let's play a game! Guess your lucky numbers.\nFirst enter a number.");
+                //Asking for user input for range.
+                Console.WriteLine("Welcome to the Blips and Chits aniversery number game!\n" 
+                    + "Guess your lucky numbers.\nFirst enter a number.");
                 int firstNumber = int.Parse(Console.ReadLine());
 
                 Console.WriteLine("Now enter a bigger number.");
                 int secondNumber = int.Parse(Console.ReadLine());
 
+                //Ensuring vaild range.
                 while (firstNumber >= secondNumber)
                 {
                     Console.WriteLine("Please enter a valid number, larger then the first.");
                     secondNumber = int.Parse(Console.ReadLine());
                 }
 
-
+                //Creating random numbers within range and storing in luckyArray[].
                 Random luckyNumber = new Random();
 
                 int[] luckyArray = new int[6];
@@ -33,13 +36,14 @@ namespace LuckyNumberProject
                 {
                     luckyArray[i] = luckyNumber.Next(firstNumber, secondNumber);
                 }
+                //Asking for guesses.
                 int[] guessesArray = new int[6];
-                Console.WriteLine("We have six lucky number for you.\n" +
-                    "For every number you get right you will recieve\n10 points for a jack pot of 60 points.\n"
+                Console.WriteLine("We have six lucky numbers for you.\n" +
+                    "For every number you get right you will recieve\n10 shmeckels for a jack pot of 60 shmeckels.\n"
                     + "Guess six numers between " + firstNumber + " and " + secondNumber + "."
-                    + "Press enter after each guess");
+                    + "Press enter after each guess.\n" + "*Shmeckels only valid on federation sanctioned planets.*");
 
-
+                //Catching user input and storing in guessesArray[].
                 for (int j = 0; j < guessesArray.Length; j++)
                 {
                     guessesArray[j] = int.Parse(Console.ReadLine());
@@ -50,7 +54,7 @@ namespace LuckyNumberProject
                     }
                 }
 
-
+                //Scoreing calculation.
                 int correct = 0;
                 for (int k = 0; k < luckyArray.Length; k++)
                 {
@@ -71,11 +75,12 @@ namespace LuckyNumberProject
                 }
                 int winings = correct * 10;
                 Console.WriteLine("you got: " + correct + " right!\n"
-                    + "You won: " + winings + " points!");
+                    + "You won: " + winings + " shmeckels!");
 
                 Console.WriteLine("Do you want to play again? YES/NO");
                 playAgain = Console.ReadLine();
             }
+            //Play again option.
             while (playAgain.ToUpper() == "YES");
 
 
